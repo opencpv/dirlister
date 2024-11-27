@@ -14,7 +14,7 @@ async function generateStructure(rootPath: string, indent: string = ''): Promise
     for (const item of sortedItems) {
         if (item.name === 'node_modules' || item.name === '.git') {continue;}
 
-        output += `${indent}${item.isDirectory() ? '[]' : '-'} ${item.name}\n`;
+        output += `${indent}${item.isDirectory() ? '📁' : '📄'} ${item.name}\n`;
         
         if (item.isDirectory()) {
             output += await generateStructure(path.join(rootPath, item.name), indent + '  ');
